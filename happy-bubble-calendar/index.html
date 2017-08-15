@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Happy bubble calendar - one bubbly year.</title>
+      <meta name="description" content="The happy bubble calendar with one bubble a day in monthly changing rainbowy colors - get happy - it's your year.">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+      <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates' rel='stylesheet' type='text/css'>
+      <link href="stylesheets/styles.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
+      <!--[if IE]>
+        <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+      <![endif]-->
+
+      <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+      <script src="js/vendor/jquery-1.10.2.min.js"></script>
+      <script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
+      <script src="js/main.js"></script>
+  </head>
+  <body>
+
+    <!--[if lt IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <article id="dialog" class="dialog foreground pos-rel">
+      <ul class="calendar nodate nolist">
+        <li class="month"><ul class="days nolist"><li></li><li></li><li><span class="bubble_text">T</span></li></ul></li>
+        <li class="month"><ul class="days nolist"><li><span class="bubble_text">I</span></li><li><span class="bubble_text">T</span></li><li><span class="bubble_text">L</span></li></ul></li>
+        <li class="month"><ul class="days nolist"><li><span class="bubble_text">E</span></li><li></li><li></li></ul></li>
+        <li class="month">
+          <ul class="days nolist">
+            <li></li>
+            <li class="input">
+              <input id="main_title" autofocus placeholder="e.g. How was your day in 2017?" value="Bubble-Cal 2017" >
+            </li>
+            <li></li>
+          </ul>
+        </li>
+        <li class="month"><ul class="days nolist"><li></li><li></li><li></li></ul></li>
+        <li class="month"><ul class="days nolist"><li></li>
+          <li id="confirm_title">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="check_mark" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 1024 1024" xml:space="preserve" style="
+            ">
+            <polygon points="864, 96 384, 576 160, 352 0, 512 384, 896 1024, 256"></polygon>
+            </svg>
+          </li>
+          <li></li></ul></li>
+        <li class="month"><ul class="days nolist"><li></li><li></li><li></li></ul></li>
+      </ul>
+    </article>
+
+    <article class="format--a4 background pos-rel">
+      <fieldset id="fieldset">
+        <label for="main_title" class="hidden">Your happy calendar title</label>
+        <input id="main_title" placeholder="e.g. How was your day in 2017?" value="Bubble-Cal 2017" >
+      </fieldset>
+
+      <ul id="cal" class="calendar nolist">
+        <!-- here goes the dynamic calender -->
+      </ul>
+    </article>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+  </body>
+</html>

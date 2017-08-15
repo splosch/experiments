@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="NerdRecycling will be a demo of container & processor classes that try to form simple modular processing chains">
+  <title>NerdRecycling a demo of container & processor</title>
+  <link href="stylesheets/screen.css" rel="stylesheet">
+  <script src="javascript/vendor/jquery.js"></script>
+  <script src="javascript/vendor/jquery-timing.min.js"></script>
+  <script src="javascript/jQContainer.js"></script>
+  <script src="javascript/app.js"></script>
+</head>
+
+<body>
+  <!-- thx to http://www.namenerds.com/uucn/randname.html -->
+  <h1 class="title">Nerd Recycling</h1>
+  <section>
+
+    <ul id="nerdIn" class="section" data-state="IN">
+      <li>Hayden Bristol</li>
+      <li>Esmé Dorothy</li>
+      <li>Kayden Bo</li>
+      <li>Janet Sharisse</li>
+    </ul>
+
+    <span id="processor" data-state="PROCESS"></span>
+
+    <ul class="section" id="nerdOut" data-state="OUT"></ul>
+
+  </section>
+  <!--p>With the Help of <a href="http://daneden.me/animate/">animate.css</a> and some timed jQuery loops we make them fly!</p-->
+  <button id="processNerds">Lets Process Nerds!</button>
+</body>
+
+</html>

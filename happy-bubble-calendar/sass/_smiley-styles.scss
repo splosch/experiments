@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+// general
+.nolist, .nolist > li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+// format config
+// a4 16x24
+$page-width: 8.27in;
+$page-height: 11.69in;
+$page-pad-top: 0.39in;
+$page-pad-side: 0.441in;
+
+// a3
+$page-width: 11.69in;
+$page-height: 16.54in;
+$page-pad-top: 0.8in;
+$page-pad-side: 0.8in;
+
+
+// layout
+.format--a4 {
+	height: $page-height;
+	width: $page-width;
+
+	padding: $page-pad-top $page-pad-side 0;
+	box-sizing: border-box;
+
+	overflow: hidden;
+}
+
+// format precalc
+$page-width : $page-width - ( $page-pad-side * 2 ); //7.49
+$page-height : $page-height - $page-pad-top;
+
+// a4 derived 16x24 (23+1)
+$day-margin-ratio : 0.075; 		// 7,5% of the day box size go into the spacing
+$day-box : $page-width / 16; 	// 0.468125  // size one in a row of 16
+$day-margin: $day-box * $day-margin-ratio; 	// 0.03511
+$day-size: $day-box - ($day-margin * 2);	// 0.397905
+
+$day-height: day-size;					// 0.397905
+$day-border-radius: $day-size / 2;			// 0.1989525
+
+// design based sizing
+$day-num-width: $day-size * 0.4;
+$day-num-off: $day-num-width * -0.3;		// offset negative right						//
+$day-num-fontsize: $day-num-width * 0.7;	// Font takes 70% of the orbiter
+
+
+$main-title-font-size: $day-size * 0.7;
+$main-title-margin-left: $day-margin;
+$main-title-line-height: $day-box;
+
+// extend only
+.bubble_text {
+	color: white;
+	opacity: 1;
+	font-size: 2em;
+	line-height: 1.7;
+	text-align: center;
+	display: block;
+
+	width: 100%;
+	text-align: center;
+}
+
+
+.days {
+	/* reset day counter */
+	counter-reset: day-count;
+
+	> li {
+		/* increment day counter */
+		counter-increment: day-count;
+
+		position: relative;
+
+		width: $day-size;
+		height: $day-size;
+		margin: $day-margin;
+		background-color: rgba(20, 160, 200, 0.5);
+		float: left;
+		border-radius: $day-size / 2;
+
+		> .day__text {
+			@extend .bubble_text;
+
+			position: absolute;
+			width: auto;
+			bottom: -13px;
+		}
+
+		&:before {
+			/* display day counter */
+			content: counter(day-count);
+
+			position: absolute;
+			right: $day-num-off;
+			top: $day-num-off;
+			font-size: $day-num-fontsize;
+			font-weight: bold;
+			text-align: center;
+			width: $day-num-width;
+			height: $day-num-width;
+			border-radius: $day-num-width / 2;
+			background-color: white;
+			z-index:1;
+		}
+	}
+}
+
+// calculate bubble size & bubble margin depending on format
+.main_title {
+	font-family: 'Montserrat Alternates', sans-serif;
+
+	display: block;
+	position: absolute;
+	margin: 0;
+	font-size: $main-title-font-size;
+	margin-left: $day-margin;
+	height: 100%;
+	line-height: $day-box;
+	width: 100%;
+	color: #81BEF7;
+}
+
+#fieldset {
+	position: absolute;
+	bottom: 1.36in;
+	left: 0.8in;
+	z-index: 999;
+	width: $day-box * 10;
+}
+
+#dialog {
+	display: block;
+	width: 5.84in;
+	overflow: hidden;
+	z-index: 10;
+	margin: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -1.99in;
+	margin-left: -2.925in;
+	background: white;
+	padding: 0.25in;
+	box-shadow: 0 0 0 4px rgba(20, 160, 200, 0.4), 0 0 0px 10px white, 0 0 20px 14px white;
+	border-radius: 10px;
+}
+
+#confirm_title {
+    padding: 11px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input#main_title {
+	@extend .main_title;
+
+	border: 2px dashed;
+	overflow: visible;
+	height: 0.55in;
+	line-height: 0.55in;
+	width: 100%;
+	text-align: center;
+	border-radius: 4px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.background {
+	opacity: 0.5;
+	-webkit-filter: blur(2px);
+	z-index: 1;
+}
+
+.foreground {
+	z-index: 2;
+}
+
+.pos-rel {
+	position: relative;
+}
+
+.hidden {
+	display: none;
+}
+
+.month__title{
+	display: none;
+}
+
+
+.nodate .days > li:before {
+    content: none;
+}
+
+.example {
+	position: relative;
+	float: right;
+	width: 100%;
+
+	.days {
+		clear: both;
+		float: right;
+
+		> li:before {
+			content: ""
+		}
+	}
+}
+
+
+/*  A color per month, the color is applied to
+	1st child => January  => #A9E2F3,
+	2nd child => February => #81BEF7,
+	...
+*/
+$boxcolors: #A9E2F3, #81BEF7, #A9F5BC, #9FF781, #D8F781, #F3F781, #FFD177, #F96D6D, #F970B7, #FC94F0, #D0A9F5, #A9BCF5;
+
+@each $boxcolor in $boxcolors {
+  $boxindex: index($boxcolors, $boxcolor);
+
+  .calendar > li:nth-child(#{$boxindex}) > .days > li {
+    background-color: #{$boxcolor};
+
+    &:before {
+    	color: #{$boxcolor};
+    }
+  }
+}
+
+.calendar > li > .days li.input {
+	background-color: transparent;
+	width: 4.32in;
+}
+
+.example > .days > li {
+	background-color: #81BEF7;
+	color: #81BEF7;
+}

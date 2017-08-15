@@ -1,0 +1,16 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+@page { 
+    size: 8.27in 11.69in; 
+    margin: 0;
+    marks: cross;
+}
+
+
+@media print {
+    .calender > li ul { 
+        page-break-inside: avoid; 
+    }
+}

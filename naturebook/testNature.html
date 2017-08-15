@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book of Nature (a CSS tale)</title>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+
+<!--
+  Booklike Pagelayout
+  + page (data-role)
+      + page_[left,right] (class)
+      + behaviour
+          - page = left + right
+          - multiple pages are layered (semitransparent) following their order (first on top ... down to last on bottom)
+          - navigation to pages up or down
+          - navigation includes (folding) animation of each page side (left, right)
+          - e.g. going from top to second top page -> left + right side are flipping / folding to the side (left to left, right to right side)
+          + fake perspective via parallax perspective shift
+              - each page (page = left + right side) can be one parallax layer
+              - (depends on complexity -> set parallax enabling depth based on current active page)
+              - simulation of a path through the book while navigating the pages top -> bottom and back
+-->
+
+<body>
+  <article data-role="page" id="page_0" data-depth="0" style="z-index:2">
+    <section class="page_left">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>O</i>
+      </div>
+    </section>
+    <section class="page_right">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>P</i>
+      </div>
+    </section>
+  </article>
+  <article data-role="page" id="page_1" data-depth="1" style="z-index:1">
+    <section class="page_left">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>M</i>
+        <!--i>Q</i><i>N</i><i>P</i><i>L</i><i>K</i><i>J</i-->
+      </div>
+    </section>
+    <section class="page_right">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>N</i>
+      </div>
+    </section>
+  </article>
+  <article data-role="page" id="page_2" data-depth="2" style="z-index:0">
+    <section class="page_left">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>K</i>
+        <!--i>Q</i><i>N</i><i>P</i><i>L</i><i>K</i><i>J</i-->
+      </div>
+    </section>
+    <section class="page_right">
+      <div data-role="presentational" class="natsymbols trees">
+        <i>J</i>
+      </div>
+    </section>
+  </article>
+</body>
+</html>
+
